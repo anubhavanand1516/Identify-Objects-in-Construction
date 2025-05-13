@@ -1,0 +1,9 @@
+path: /Users/anubhavanand/Desktop/datasets/data # Base directory for images and labels
+
+train: images/train
+val: images/val
+
+names:
+  0: EVSE
+  1: panelboard
+  2: GFI
