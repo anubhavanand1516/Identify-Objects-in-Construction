@@ -1,0 +1,5 @@
+path: ./  # root of your dataset
+train: data/images
+val: data/images
+nc: 3
+names: ['evse', 'panel', 'gfi']
