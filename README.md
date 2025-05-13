@@ -17,19 +17,57 @@ This project provides a FastAPI-based service for detecting electrical symbols �
 
 ## 🗂️ Project Structure
 
+## 🛠️ convert_pdf_img
 ```
 .
-├── app.py                # FastAPI backend (with /detect endpoint)
-├── runs/                 # YOLO training outputs
-│   └── detect/train/weights/best.pt
-├── data.yaml             # YOLO dataset configuration
-├── requirements.txt
-└── README.md
+├── convert.py                          # convert PDF to image        
+├── The Egyptian EV - Sample Data.pdf   # sample pdf
+│   
+```
+```bash
+python convert.py
+```
+
+## 🛠️ datasets
+
+```
+datasets/
+├── data/
+│   ├── yolov8n.pt
+│   ├── data.yaml
+│   ├── data/
+│   │   ├── images/
+│   │   │   ├── train/
+│   │   │   │   ├── E003.png
+│   │   │   ├── val/
+│   │   │   │   ├── E004.png
+│   │   ├── labels/
+│   │   │   ├── train/
+│   │   │   │   ├── E003.txt
+│   │   │   ├── val/
+│   │   │   │   ├── E004.txt
+│   │   │   ├── train.cache
+│   │   │   ├── val.cache
+│   ├── runs/detect/train/weight/best.pt
+ 
+```
+```bash
+pip install -r requirements.txt
+```
+```bash
+yolo task=detect mode=train model=yolov8n.pt data=data.yaml epochs=50 imgsz=640
+```
+## 🛠️ test_annotation
+```
+.
+├── annotation.py                # check if the annotation was correctly       
+├── E003_annotated.png           #annotation image
+│   
 ```
 
 ---
 
-## 🛠️ Setup
+
 
 ### 1. Create a virtual environment (recommended)
 
